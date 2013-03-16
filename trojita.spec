@@ -1,5 +1,9 @@
 # TODO
 # - localizations proper packaging
+#
+# Conditional build:
+%bcond_without	tests		# build without tests
+
 %define		qtver 4.3.3-3
 Name:		trojita
 Version:	0.3.92
@@ -25,11 +29,18 @@ BuildRequires:	qt4-build >= %{qtver}
 BuildRequires:	qt4-linguist >= %{qtver}
 BuildRequires:	qt4-qmake >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.129
+%if %{with tests}
+BuildRequires:	xkeyboard-config
+BuildRequires:	xorg-xserver-Xvfb
+%endif
 Requires:	QtSql-sqlite3 >= %{qtver}
 Requires:	desktop-file-utils
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+# display used for testing
+%define         X_display         ":98"
 
 %description
 Trojita is a Qt IMAP e-mail client which:
@@ -59,6 +70,13 @@ PATH=%{_libdir}/qt4/bin:$PATH \
 %{__make} \
 	CXX="%{__cxx}" \
 	CXXFLAGS="%{rpmcxxflags} "'$(DEFINES)'
+
+%if %{with tests}
+export DISPLAY=%{X_display}
+Xvfb %{X_display} &
+trap "kill $! || true" EXIT
+%{__make} test
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
