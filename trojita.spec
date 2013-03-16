@@ -17,6 +17,8 @@ License:	(GPLv2 or GPLv3) and BSD and LGPLv2 and (LGPLv2.1 or GPLv3) and LGPLv2+
 URL:		http://trojita.flaska.net/
 Source0:	http://downloads.sourceforge.net/trojita/%{name}-%{version}.tar.bz2
 # Source0-md5:	8938d959789f0e20d724a511b265213c
+BuildRequires:	QtSql-devel
+BuildRequires:	QtTest-devel
 BuildRequires:	QtWebKit-devel >= %{qtver}
 BuildRequires:	desktop-file-utils
 BuildRequires:	qt4-build >= %{qtver}
@@ -26,7 +28,6 @@ BuildRequires:	rpmbuild(macros) >= 1.129
 Requires:	QtSql-sqlite3 >= %{qtver}
 Requires:	desktop-file-utils
 Requires:	gtk-update-icon-cache
-Requires:	hicolor-icon-theme
 Requires:	hicolor-icon-theme
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
