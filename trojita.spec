@@ -8,7 +8,7 @@
 Name:		trojita
 Version:	0.3.92
 Release:	0.2
-Group:		X11/Applications/Networking
+Group:		X11/Applications/Mail
 # Almost everything: dual-licensed under the GPLv2 or GPLv3
 # (with KDE e.V. provision for relicensing)
 # src/XtConnect: BSD
