@@ -7,7 +7,7 @@
 %define		qtver 4.3.3-3
 Name:		trojita
 Version:	0.3.92
-Release:	0.2
+Release:	1
 Group:		X11/Applications/Mail
 # Almost everything: dual-licensed under the GPLv2 or GPLv3
 # (with KDE e.V. provision for relicensing)
@@ -17,7 +17,7 @@ Group:		X11/Applications/Mail
 # src/Imap/Parser/3rdparty/rfccodecs.cpp: LGPLv2+
 # src/qwwsmtpclient/: GPLv2
 Summary:	Qt IMAP e-mail client
-License:	(GPLv2 or GPLv3) and BSD and LGPLv2 and (LGPLv2.1 or GPLv3) and LGPLv2+ and GPLv2
+License:	(GPL v2 or GPL v3) and BSD and LGPL v2 and (LGPL v2.1 or GPL v3) and LGPL v2+ and GPL v2
 URL:		http://trojita.flaska.net/
 Source0:	http://downloads.sourceforge.net/trojita/%{name}-%{version}.tar.bz2
 # Source0-md5:	8938d959789f0e20d724a511b265213c
